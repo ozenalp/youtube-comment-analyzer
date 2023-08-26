@@ -16,8 +16,9 @@ video_id = "pCQDJQZh_UE"
 def get_comments(youtube, **kwargs):
     comments = []
     results = youtube.commentThreads().list(**kwargs).execute()
-    print(results)
-
+    # print(results)
+    items = results['items']
+    print(items)
     while results:
         for item in results['items']:
             comment = item['snippet']['topLevelComment']['snippet']['textDisplay']
@@ -34,5 +35,5 @@ def get_comments(youtube, **kwargs):
 
 # Fetch and print comments
 comments = get_comments(youtube, part="snippet", videoId=video_id, textFormat="plainText")
-for comment in comments:
-    print(comment)
+# for comment in comments:
+#     print(comment)
