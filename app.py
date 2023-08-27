@@ -25,7 +25,7 @@ def main():
         with st.spinner("Processing the video URL..."):
             # Call your custom library function to process the video URL
             # output = process_video_url(video_url)
-            output = comment-downloader.get_comments(youtube, part="snippet", videoId=video_url, textFormat="plainText",maxResults=20)
+            output = comment_downloader.get_comments(youtube, part="snippet", videoId=video_url, textFormat="plainText",maxResults=20)
 
             # Display the output
             st.write(f"Processed Output: {video_url}")
