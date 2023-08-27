@@ -9,7 +9,7 @@ YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
 youtube = build("youtube", "v3", developerKey=YOUTUBE_API_KEY)
 
 # Video ID for which you want to fetch the comments
-video_id = "pCQDJQZh_UE"
+video_id = "tLgmrUyfcd4"
 
 # Fetch comments
 def get_comments(youtube, **kwargs):

@@ -29,6 +29,9 @@ def main():
 
             # Display the output
             st.write(f"Processed Output: {video_url}")
+            # for comment in output:
+            #     # print(output['comment'])
+            #     st.write(f"Processed Output: {comment['comment']}")
             st.write(f"Processed Output: {output[0]['comment']}")
 
 if __name__ == "__main__":
