@@ -35,16 +35,18 @@ def get_comments(youtube, **kwargs):
             comments.append(comment)
 
         # check if there is a next page
-        if 'nextPageToken' in results:
-            kwargs['pageToken'] = results['nextPageToken']
-            results = youtube.commentThreads().list(**kwargs).execute()
-        else:
-            break
+        # if 'nextPageToken' in results:
+        #     kwargs['pageToken'] = results['nextPageToken']
+        #     results = youtube.commentThreads().list(**kwargs).execute()
+        # else:
+        #     break
+        break
 
     return commentsWithData
 
-# Fetch and print comments
-comments = get_comments(youtube, part="snippet", videoId=video_id, textFormat="plainText",maxResults=20)
-print(comments[0]['comment'],"Like count: "+str(comments[0]['likeCount']),"Publish date: "+comments[0]['publishDate'] )
-# for comment in comments:
-#     print(comment)
+if __name__ == "__main__":
+    # Fetch and print comments
+    comments = get_comments(youtube, part="snippet", videoId=video_id, textFormat="plainText")
+    print(comments[0]['comment'],"Like count: "+str(comments[0]['likeCount']),"Publish date: "+comments[0]['publishDate'] )
+    # for comment in comments:
+    #     print(comment)
