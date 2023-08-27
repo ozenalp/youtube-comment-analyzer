@@ -19,4 +19,11 @@ def get_video_comments(datafile):
     df = pd.DataFrame(output)
     df.to_csv(datafile)
 
-get_video_comments("runereader.csv")
+def get_video_comments_only(datafile):
+    output = get_video_comments_only(youtube, part="snippet", videoId=video_id, textFormat="plainText",maxResults=100,order="relevance")
+    print(1)
+    df = pd.DataFrame(output)
+    df.to_csv(datafile)
+
+# get_video_comments("runereader.csv")
+get_video_comments_only("runereader.csv")

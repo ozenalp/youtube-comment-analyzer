@@ -44,6 +44,38 @@ def get_comments(youtube, **kwargs):
 
     return commentsWithData
 
+def get_comments_only(youtube, **kwargs):
+    comments = []
+    commentsWithData=[]
+    results = youtube.commentThreads().list(**kwargs).execute()
+    # print(results)
+    items = results['items']
+    # print(items)
+    print(items[0])
+
+    while results:
+        for item in items:
+            comment = item['snippet']['topLevelComment']['snippet']['textDisplay']
+            likeCount = item['snippet']['topLevelComment']['snippet']['likeCount']
+            publishDate = item['snippet']['topLevelComment']['snippet']['publishedAt']
+            commentData = {}
+            commentData['comment']=comment
+            commentData['likeCount']=likeCount
+            commentData['publishDate']=publishDate
+
+            commentsWithData.append(commentData)
+            comments.append(comment)
+
+        # check if there is a next page
+        # if 'nextPageToken' in results:
+        #     kwargs['pageToken'] = results['nextPageToken']
+        #     results = youtube.commentThreads().list(**kwargs).execute()
+        # else:
+        #     break
+        break
+
+    return comments
+
 if __name__ == "__main__":
     # Fetch and print comments
     comments = get_comments(youtube, part="snippet", videoId=video_id, textFormat="plainText")
