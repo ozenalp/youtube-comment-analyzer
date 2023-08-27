@@ -1,0 +1,10 @@
+name: yva
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - clarifai-grpc
+  - streamlit
+  - streamlit-chat
