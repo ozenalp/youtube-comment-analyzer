@@ -6,4 +6,5 @@ dependencies:
   - pip:
       - google-api-python-client==2.97.0
       - python-dotenv==1.0.0
-      - streamlit
+      - streamlit==1.26.0
+      - pandas==2.0.3
